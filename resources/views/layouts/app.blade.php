@@ -16,14 +16,15 @@
     <body>
         <div id="app">
           @include('_include.navbar')
-          <div class="wrapper">
-            <div class="columns">
+          <div class="columns wrapper">
+            @guest
+            @else
               <div class="column is-2">
                 @include('_include.aside')
               </div>
-              <div class="column">
-                @yield('content')
-              </div>
+            @endguest
+            <div class="column is-paddingless">
+              @yield('content')
             </div>
           </div>
           @include('_include.footer')
